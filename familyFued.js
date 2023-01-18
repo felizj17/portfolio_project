@@ -168,7 +168,7 @@ function createGameCards(data) {
 }
 function addPoints(points) {
   const pointSpan = document.getElementById('count')
-//   pointSpan.innerText = ''
+  //   pointSpan.innerText = ''
   let pnts = parseInt(localStorage.getItem('sch'))
   pnts += points
   pointSpan.innerText = pnts

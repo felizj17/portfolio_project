@@ -1,9 +1,9 @@
 const createCards = data => {
   const url = data.info.next
-  if(document.getElementById('next-button')){
+  if (document.getElementById('next-button')) {
     document.getElementById('next-button').remove()
   }
-  
+
   data.results.forEach(el => {
     let type = ' '
     const card = document.createElement('article')
@@ -34,23 +34,36 @@ const createCards = data => {
     document.getElementById('card-list').append(card)
   })
   const link = document.createElement('button')
-  link.setAttribute('id','next-button')
+  link.setAttribute('id', 'next-button')
+  link.innerText = '>'
   document.getElementById('grid-right').append(link)
-  link.addEventListener('click', ()=>getNextPage(url))
+  link.addEventListener('click', () => getNextPage(url))
 }
 document.querySelector('form').addEventListener('submit', async e => {
   e.preventDefault()
-  url = `https://rickandmortyapi.com/api/character/?name=${e.target.query.value}&status=${e.target.status.value}&species=${e.target.querySpecies.value}&type=${e.target.queryType.value}&gender=${e.target.queryGender.value}`
-  const res = await fetch(url)
-  const data = await res.json()
-  clearCards()
-  e.target.query.value = ''
-  e.target.status.value = ''
-  e.target.querySpecies.value = ''
-  e.target.queryType.value = ''
-  e.target.queryGender.value = ''
-  console.log(data)
-  createCards(data)
+  const regex = /[0-9]/
+  const err = document.getElementById('err')
+  if (
+    regex.test(e.target.query.value) ||
+    regex.test(e.target.querySpecies.value) ||
+    regex.test(e.target.queryType.value) ||
+    regex.test(e.target.queryGender.value)
+  ) {
+    err.classList.remove('none')
+  } else {
+    err.classList.add('none')
+    url = `https://rickandmortyapi.com/api/character/?name=${e.target.query.value}&status=${e.target.status.value}&species=${e.target.querySpecies.value}&type=${e.target.queryType.value}&gender=${e.target.queryGender.value}`
+    const res = await fetch(url)
+    const data = await res.json()
+    clearCards()
+    e.target.query.value = ''
+    e.target.status.value = ''
+    e.target.querySpecies.value = ''
+    e.target.queryType.value = ''
+    e.target.queryGender.value = ''
+    console.log(data)
+    createCards(data)
+  }
 })
 
 async function getNextPage(url) {
@@ -61,10 +74,12 @@ async function getNextPage(url) {
 }
 document.getElementById('advance').addEventListener('click', e => {
   document.getElementById('advance-search').classList.remove('none')
+  document.getElementById('cancel').classList.remove('none')
 })
 
 document.getElementById('cancel').addEventListener('click', () => {
   document.getElementById('advance-search').classList.add('none')
+  document.getElementById('cancel').classList.add('none')
 })
 const clearCards = () => {
   document.getElementById('card-list').remove()

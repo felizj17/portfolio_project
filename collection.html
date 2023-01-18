@@ -19,18 +19,26 @@
       </p>
       <nav>
         <a href="./index.html">Home</a>
-        <span id="count"
-          ><img src="./assets/Schmeckles.webp" id="sch" /></span
-        >
+        <span id="count"><img src="./assets/Schmeckles.webp" id="sch" /></span>
       </nav>
     </header>
 
     <main id="collection">
-      <img src="./assets/search.png" id="search-icon-id" class="search-icon" alt="search" />
+      <img
+        src="./assets/search.png"
+        id="search-icon-id"
+        class="search-icon"
+        alt="search"
+      />
       <form id="form">
-        <img src="./assets/search.png" id="search-icon-id2" class="search-icon" alt="search" />
+        <img
+          src="./assets/search.png"
+          id="search-icon-id2"
+          class="search-icon"
+          alt="search"
+        />
         <hr id="hr-1" />
-        <h3>Search By </h3>
+        <h3>Search By</h3>
         <hr />
         <p></p>
         <!-- <input
@@ -51,32 +59,35 @@
         <!-- <input type="radio" id="location" name="type" value="location" />
         <label for="location">Location</label> -->
         <br />
+        <p id="err" class="none">Searches should not have numbers!</p>
         <label for="query">Name:</label>
         <br />
-        <input type="text" id="query" pattern="[a-zA-Z]+"/>
+        <input type="text" id="query" />
         <input type="button" id="advance" value="Advance Search" />
         <section id="advance-search" class="none">
-            <input type="radio" id="alive" name="status" value="alive" />
-            <label for="alive">Alive</label>
-            <br />
-            <input type="radio" id="dead" name="status" value="dead" />
-            <label for="location">Dead</label>
-            <br />
-            <input type="radio" id="unknown" name="status" value="unknown" />
-            <label for="location">Unknown</label>
-            <br />
+          <p>Status:</p>
+          <input type="radio" id="alive" name="status" value="alive" />
+          <label for="alive">Alive</label>
+          <br />
+          <input type="radio" id="dead" name="status" value="dead" />
+          <label for="location">Dead</label>
+          <br />
+          <input type="radio" id="unknown" name="status" value="unknown" />
+          <label for="location">Unknown</label>
+          <br />
+          <div id="searches">
             <label for="query-species">Species:</label>
-            <input type="text" id="query-species" pattern="[a-zA-Z]+" name="querySpecies" />
-            <br />
+            <input type="text" id="query-species" name="querySpecies" />
+
             <label for="query-type">Type:</label>
-            <input type="text" id="query-type" pattern="[a-zA-Z]+" name="queryType" />
-            <br />
+            <input type="text" id="query-type" name="queryType" />
             <label for="query-gender">Gender:</label>
-            <input type="text" id="query-gender" pattern="[a-zA-Z]+" name="queryGender" />
-          </section>
+            <input type="text" id="query-gender" name="queryGender" />
+          </div>
+        </section>
         <br />
         <div id="buttons">
-          <button id="cancel" type="button">Cancel</button>
+          <button id="cancel" class="none" type="button">Cancel</button>
           <input type="submit" id="submit" value="Search" />
         </div>
       </form>
