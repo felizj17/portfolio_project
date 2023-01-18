@@ -1,3 +1,9 @@
+if (localStorage.getItem('sch')) {
+  document.getElementById('count').innerText = localStorage.getItem('sch')
+} else {
+  localStorage.setItem('sch', '1000')
+  document.getElementById('count').innerText = localStorage.getItem('sch')
+}
 let cardData
 const getCards = async () => {
   url = `https://rickandmortyapi.com/api/character/[1,2,3,4,5]`
@@ -37,7 +43,6 @@ function createGameCards(data) {
     card.append(innerCard)
     document.getElementById('player-hand').append(card)
 
-
     card.addEventListener('click', e => {
       console.log(e.target.value)
       const trashCards = document.querySelectorAll('article')
@@ -70,7 +75,7 @@ function createGameCards(data) {
           } else {
             results.innerText = 'You Win!\n +50'
             results.classList.add('win')
-
+            addPoints(50)
           }
 
           break
@@ -86,9 +91,9 @@ function createGameCards(data) {
             results.innerText = 'DRAW'
             results.classList.add('draw')
           } else {
-            results.innerText = 'You Win!\n +50'         
-               results.classList.add('win')
-
+            results.innerText = 'You Win!\n +50'
+            results.classList.add('win')
+            addPoints(50)
           }
           break
         case 2:
@@ -99,13 +104,13 @@ function createGameCards(data) {
           ) {
             results.innerText = 'You Lose!'
             results.classList.add('lose')
-          } else if(e.target.value === 'Summer Smith'){
+          } else if (e.target.value === 'Summer Smith') {
             results.innerText = 'DRAW'
             results.classList.add('draw')
-          }else {
+          } else {
             results.innerText = 'You Win!\n +50'
             results.classList.add('win')
-
+            addPoints(50)
           }
           break
         case 3:
@@ -116,13 +121,13 @@ function createGameCards(data) {
           ) {
             results.innerText = 'You Lose!'
             results.classList.add('lose')
-          } else if(e.target.value === 'Beth Smith'){
+          } else if (e.target.value === 'Beth Smith') {
             results.innerText = 'DRAW'
             results.classList.add('draw')
-          }else {
+          } else {
             results.innerText = 'You Win!\n +50'
             results.classList.add('win')
-
+            addPoints(50)
           }
           break
         case 4:
@@ -133,19 +138,19 @@ function createGameCards(data) {
           ) {
             results.innerText = 'You Lose!'
             results.classList.add('lose')
-          } else if(e.target.value === 'Jerry Smith'){
+          } else if (e.target.value === 'Jerry Smith') {
             results.innerText = 'You Both Lose!'
             results.classList.add('draw')
-          }else {
+          } else {
             results.innerText = 'You Win!\n +50'
             results.classList.add('win')
-
+            addPoints(50)
           }
           break
         default:
           console.log(err)
       }
-      setTimeout(()=>{
+      setTimeout(() => {
         document.getElementById('game').remove()
         const game = document.createElement('section')
         const playerDiv = document.createElement('div')
@@ -153,14 +158,21 @@ function createGameCards(data) {
         playerDiv.setAttribute('id', 'player-hand')
         computerDiv.setAttribute('id', 'computer-choice')
         game.setAttribute('id', 'game')
-        game.append(computerDiv,playerDiv)
+        game.append(computerDiv, playerDiv)
         document.querySelector('main').append(game)
 
         createGameCards(cardData)
-      },5000 )
-
+      }, 2500)
     })
   })
+}
+function addPoints(points) {
+  const pointSpan = document.getElementById('count')
+//   pointSpan.innerText = ''
+  let pnts = parseInt(localStorage.getItem('sch'))
+  pnts += points
+  pointSpan.innerText = pnts
+  localStorage.setItem('sch', pnts)
 }
 function createComputerCard(data) {
   const card = document.createElement('article')

@@ -40,7 +40,6 @@ const createCards = data => {
 }
 document.querySelector('form').addEventListener('submit', async e => {
   e.preventDefault()
-  
   url = `https://rickandmortyapi.com/api/character/?name=${e.target.query.value}&status=${e.target.status.value}&species=${e.target.querySpecies.value}&type=${e.target.queryType.value}&gender=${e.target.queryGender.value}`
   const res = await fetch(url)
   const data = await res.json()

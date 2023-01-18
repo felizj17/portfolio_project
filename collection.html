@@ -20,7 +20,7 @@
       <nav>
         <a href="./index.html">Home</a>
         <span id="count"
-          ><img src="./assets/Schmeckles.webp" id="sch" />1000</span
+          ><img src="./assets/Schmeckles.webp" id="sch" /></span
         >
       </nav>
     </header>
@@ -53,10 +53,9 @@
         <br />
         <label for="query">Name:</label>
         <br />
-        <input type="text" id="query" />
+        <input type="text" id="query" pattern="[a-zA-Z]+"/>
         <input type="button" id="advance" value="Advance Search" />
         <section id="advance-search" class="none">
-          <section id="advance-character-search" class="none">
             <input type="radio" id="alive" name="status" value="alive" />
             <label for="alive">Alive</label>
             <br />
@@ -67,23 +66,14 @@
             <label for="location">Unknown</label>
             <br />
             <label for="query-species">Species:</label>
-            <input type="text" id="query-species" name="querySpecies" />
+            <input type="text" id="query-species" pattern="[a-zA-Z]+" name="querySpecies" />
             <br />
             <label for="query-type">Type:</label>
-            <input type="text" id="query-type" name="queryType" />
+            <input type="text" id="query-type" pattern="[a-zA-Z]+" name="queryType" />
             <br />
             <label for="query-gender">Gender:</label>
-            <input type="text" id="query-gender" name="queryGender" />
+            <input type="text" id="query-gender" pattern="[a-zA-Z]+" name="queryGender" />
           </section>
-
-          <section id="advance-location-search" class="none">
-            <label for="query-type">Type:</label>
-            <input type="text" id="query-type2" name="queryType2" />
-            <br />
-            <label for="query-dimension">Dimension:</label>
-            <input type="text" id="query-dimension" name="queryDimension" />
-          </section>
-        </section>
         <br />
         <div id="buttons">
           <button id="cancel" type="button">Cancel</button>
