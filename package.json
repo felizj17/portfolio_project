@@ -1,0 +1,19 @@
+{
+  "name": "portfolio-project",
+  "version": "1.0.0",
+  "description": "Users can play a card game to collect points and get cards.",
+  "main": "main.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felizj17/portfolio_project.git"
+  },
+  "author": "Juan Feliz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felizj17/portfolio_project/issues"
+  },
+  "homepage": "https://github.com/felizj17/portfolio_project#readme"
+}
