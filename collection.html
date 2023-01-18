@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="main.js"></script>
+    <title>Card Collection</title>
+  </head>
+  <body>
+    <header>
+      <img src="./assets/File-01-01.png" id="icon" />
+
+      <p>
+        <img src="./assets/Rick_and_Morty.svg.png" id="title" /><em
+          >A Collectable Card Game</em
+        >
+      </p>
+      <nav>
+        <a href="./index.html">Home</a>
+        <span id="count"
+          ><img src="./assets/Schmeckles.webp" id="sch" />1000</span
+        >
+      </nav>
+    </header>
+
+    <main id="collection">
+      <img src="./assets/search.png" id="search-icon-id" class="search-icon" alt="search" />
+      <form id="form">
+        <img src="./assets/search.png" id="search-icon-id2" class="search-icon" alt="search" />
+        <hr id="hr-1" />
+        <h3>Search By </h3>
+        <hr />
+        <p></p>
+        <!-- <input
+          type="radio"
+          id="character"
+          name="type"
+          checked
+          value="character"
+        />
+        <label for="character">Character</label>
+        <br /> -->
+        <!-- <select name="type" id="type">
+          <option>---Please Make a Selection---</option>
+          <option value="character">Character</option>
+          <option value="location">Location</option>
+        </select> -->
+        <br />
+        <!-- <input type="radio" id="location" name="type" value="location" />
+        <label for="location">Location</label> -->
+        <br />
+        <label for="query">Name:</label>
+        <br />
+        <input type="text" id="query" />
+        <input type="button" id="advance" value="Advance Search" />
+        <section id="advance-search" class="none">
+          <section id="advance-character-search" class="none">
+            <input type="radio" id="alive" name="status" value="alive" />
+            <label for="alive">Alive</label>
+            <br />
+            <input type="radio" id="dead" name="status" value="dead" />
+            <label for="location">Dead</label>
+            <br />
+            <input type="radio" id="unknown" name="status" value="unknown" />
+            <label for="location">Unknown</label>
+            <br />
+            <label for="query-species">Species:</label>
+            <input type="text" id="query-species" name="querySpecies" />
+            <br />
+            <label for="query-type">Type:</label>
+            <input type="text" id="query-type" name="queryType" />
+            <br />
+            <label for="query-gender">Gender:</label>
+            <input type="text" id="query-gender" name="queryGender" />
+          </section>
+
+          <section id="advance-location-search" class="none">
+            <label for="query-type">Type:</label>
+            <input type="text" id="query-type2" name="queryType2" />
+            <br />
+            <label for="query-dimension">Dimension:</label>
+            <input type="text" id="query-dimension" name="queryDimension" />
+          </section>
+        </section>
+        <br />
+        <div id="buttons">
+          <button id="cancel" type="button">Cancel</button>
+          <input type="submit" id="submit" value="Search" />
+        </div>
+      </form>
+      <div id="grid-right">
+        <h2>Card Collection</h2>
+        <section id="card-list"></section>
+      </div>
+    </main>
+  </body>
+</html>

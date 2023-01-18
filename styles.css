@@ -1,0 +1,394 @@
+body {
+  background: radial-gradient(#387989, #6dd5ed);
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  height: fit-content;
+}
+main {
+  margin-top: 200px;
+}
+header {
+  height: 170px;
+  /* background-color: #66c88f; */
+  background: radial-gradient(#66c88f, #387989);
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  text-align: center;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+  grid-template-rows: auto;
+}
+header p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-column-start: 2;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+header h1 {
+  margin-bottom: 0;
+}
+.search-icon{
+  display:none;
+  width:20px;
+  height: auto;
+  background-color: #f4f142;
+}
+nav {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  height: 25px;
+  text-align: left;
+  width: 100%;
+  background-color: #f4f142;
+  border-top: #387989 solid 2px;
+  font-size: large;
+  text-decoration: none;
+  color: #387989;
+}
+nav a {
+  font-size: larger;
+  text-decoration: none;
+  color: #387989;
+  padding: 5px;
+}
+nav a:hover {
+  font-size: large;
+  text-decoration: none;
+  color: #f4f142;
+  margin-left: 10px;
+  background-color: #387989;
+  height: 25px;
+}
+#icon {
+  grid-column-start: 0;
+  grid-row-start: 0;
+  width: 150px;
+  height: auto;
+}
+#sch {
+  width: 20px;
+}
+#count {
+  padding: 2px;
+  float: right;
+  margin-right: 10vw;
+}
+#title {
+  margin-top: 5px;
+  width: 25vw;
+  height: 10vh;
+  min-height: 100px;
+}
+/*=============================================== GAME PAGE PROPERTIES ===============================================*/
+#game {
+  position: relative;
+  width: 80vw;
+  height: 60vh;
+  border: solid #f4f142 2px;
+  margin: auto;
+  /* margin-top:400px; */
+  background-color: beige;
+  overflow: hidden;
+  scroll-behavior: auto;
+}
+aside {
+  text-align: center;
+}
+#play-button {
+  background-color: transparent;
+  font-size: x-large;
+  font-weight: 600;
+  color: #f4f142;
+  border: none;
+  padding: 0;
+}
+#play-button:hover {
+  cursor: pointer;
+  color: #6dd5ed;
+  background-color: #f4f142;
+  padding: 2px;
+}
+#player-hand {
+  margin: auto;
+  width: 70vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  translate: 0 300px 0;
+}
+#computer-choice {
+  width: 70vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  transform: rotate(180deg);
+}
+#results {
+  text-align: center;
+  font-size: xx-large;
+  margin: 0;
+  padding-top: 30px;
+}
+.game-card {
+  text-align: left;
+  width: 155px;
+  height: 400px;
+  padding: 5px;
+  margin: 5px;
+  perspective: 1000px;
+}
+.game-card:hover {
+  translate: 0 -100px;
+}
+
+.game-card-inner {
+  position: relative;
+  width: 150px;
+  height: 200px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.game-card-front {
+  padding: 5px;
+  text-align: center;
+  border: solid 2px #f4f142;
+  border-radius: 5px;
+  background-color: #66c88f;
+  position: absolute;
+  width: 150px;
+  height: 200px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.game-card-back {
+  background-image: url('/assets/File-01-01.png'),
+    url('/assets/Rick-and-Morty-portal.png');
+  background-size: contain, cover;
+  background-position: center;
+  background-repeat: no-repeat, repeat;
+  border-radius: 5px;
+  border: #387989 solid 2px;
+  transform: rotateY(180deg);
+  position: absolute;
+  width: 150px;
+  height: 200px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.game-card-image {
+  height: auto;
+  width: 140px;
+}
+.game-card-title {
+  margin: 5px;
+  color: #f4f142;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-family: sans;
+}
+.select-button {
+  float: right;
+}
+.selected {
+  text-align: left;
+  width: 150px;
+  height: 400px;
+  padding: 5px;
+  /* margin: 20px; */
+  perspective: 1000px;
+  translate: 0 -280px;
+}
+.win{
+  color:green;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.lose{
+  color:red;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.draw{
+color:yellow;
+text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+/*=============================================== COLLECTION PAGE PROPERTIES ===============================================*/
+#form {
+  padding: 5px;
+  background-color: #f4f142;
+  position: fixed;
+  width: 300px;
+  top: 175px;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+}
+#form h3 {
+  text-align: center;
+  margin: 15px;
+}
+#form p {
+  margin: 0;
+  text-align: left;
+}
+label {
+  font-size: medium;
+  margin-bottom: 15px;
+}
+#hr-1 {
+  margin-top: 0;
+}
+#collection {
+  display: grid;
+  grid-template-columns: 300px auto;
+}
+#grid-right h2 {
+  margin-left: 43%;
+}
+#grid-right {
+  z-index: 0;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+#query {
+  width: 70%;
+}
+#buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#advance {
+  font-weight: 600;
+  text-decoration: underline dashed;
+  border: none;
+  background-color: #f4f142;
+  color: #387989;
+}
+#advance:hover {
+  cursor: pointer;
+  color: #66c88f;
+  text-decoration: underline;
+}
+#submit {
+  background-color: lightgreen;
+  border: green solid 2px;
+}
+#submit:hover {
+  cursor: pointer;
+  background-color: green;
+  border: solid lightgreen 2px;
+}
+#cancel {
+  background-color: #f4f142;
+  color: red;
+  border: none;
+  text-decoration: underline;
+}
+#cancel:hover {
+  cursor: pointer;
+}
+.none {
+  display: none;
+}
+
+/*=============================================== CARD STYLING PROPERTIES ===============================================*/
+#card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.card {
+  text-align: left;
+  width: 250px;
+  height: 400px;
+  padding: 5px;
+  margin: 20px;
+  perspective: 1000px;
+}
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-inner {
+  position: relative;
+  width: 250px;
+  height: 400px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.card-front {
+  padding: 5px;
+
+  border: solid 2px #f4f142;
+  border-radius: 5px;
+  background-color: #66c88f;
+
+  position: absolute;
+  width: 250px;
+  height: 400px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.card-back {
+  background-image: url('/assets/File-01-01.png'),
+    url('/assets/Rick-and-Morty-portal.png');
+  background-size: contain, cover;
+  background-position: center;
+  background-repeat: no-repeat, repeat;
+  border-radius: 5px;
+  border: #387989 solid 2px;
+  transform: rotateY(180deg);
+  position: absolute;
+  width: 250px;
+  height: 400px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.card-image {
+  height: auto;
+  width: 250px;
+}
+.card-title {
+  margin: 5px;
+  color: #f4f142;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-family: sans;
+}
+.card-info {
+  background-color: rgba(124, 240, 172, 1);
+  font-size: small;
+  padding: 5px;
+}
+.card-info p {
+  margin-top: 0;
+}
+
+
+
+@media screen and (max-width:820px) {
+  #form{
+    display: none;
+  }
+  /* form{display: none;} */
+  .search-icon{
+    display:block;
+    width:40px;
+    height: auto;
+    position: relative;
+    top:-20px;
+    left:-10px;
+  }
+  #search-icon-id2{ 
+    position: relative;
+    top:0px;
+    left:250px;
+   }
+   #collection{
+    display: grid;
+    grid-template-columns: 40px auto;
+   }
+}
