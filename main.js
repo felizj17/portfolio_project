@@ -1,9 +1,19 @@
+if (localStorage.getItem('sch')) {
+  document.getElementById('count').innerText = localStorage.getItem('sch')
+} else {
+  localStorage.setItem('sch', '1000')
+  document.getElementById('count').innerText = localStorage.getItem('sch')
+}
+/**************************** Functions ****************************/
+
 const createCards = data => {
+  if (!data.results) {
+    throw "Oh Cccc'mon Rrick, ther..theres nothing here!"
+  }
   const url = data.info.next
   if (document.getElementById('next-button')) {
     document.getElementById('next-button').remove()
   }
-
   data.results.forEach(el => {
     let type = ' '
     const card = document.createElement('article')
@@ -39,6 +49,23 @@ const createCards = data => {
   document.getElementById('grid-right').append(link)
   link.addEventListener('click', () => getNextPage(url))
 }
+async function getNextPage(url) {
+  const res = await fetch(url)
+  const data = await res.json()
+  clearCards()
+  createCards(data)
+}
+const clearCards = () => {
+  document.querySelectorAll('input').forEach(e => {
+    e.value = ''
+  })
+  document.getElementById('card-list').remove()
+  const cardList = document.createElement('section')
+  cardList.setAttribute('id', 'card-list')
+  document.querySelector('#grid-right').append(cardList)
+}
+
+/********************************** Event Listeners **********************************/
 document.querySelector('form').addEventListener('submit', async e => {
   e.preventDefault()
   const regex = /[0-9]/
@@ -56,22 +83,13 @@ document.querySelector('form').addEventListener('submit', async e => {
     const res = await fetch(url)
     const data = await res.json()
     clearCards()
-    e.target.query.value = ''
-    e.target.status.value = ''
-    e.target.querySpecies.value = ''
-    e.target.queryType.value = ''
-    e.target.queryGender.value = ''
-    console.log(data)
-    createCards(data)
+    try {
+      createCards(data)
+    } catch (err) {
+      document.getElementById('error').innerText = err
+    }
   }
 })
-
-async function getNextPage(url) {
-  const res = await fetch(url)
-  const data = await res.json()
-  clearCards()
-  createCards(data)
-}
 document.getElementById('advance').addEventListener('click', e => {
   document.getElementById('advance-search').classList.remove('none')
   document.getElementById('cancel').classList.remove('none')
@@ -81,12 +99,7 @@ document.getElementById('cancel').addEventListener('click', () => {
   document.getElementById('advance-search').classList.add('none')
   document.getElementById('cancel').classList.add('none')
 })
-const clearCards = () => {
-  document.getElementById('card-list').remove()
-  const cardList = document.createElement('section')
-  cardList.setAttribute('id', 'card-list')
-  document.querySelector('#grid-right').append(cardList)
-}
+/******************************* Only For Screens < 820px Wide ************************************/
 document.getElementById('search-icon-id').addEventListener('click', () => {
   const form = document.getElementById('form')
   form.style.display = 'block'

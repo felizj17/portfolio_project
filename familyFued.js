@@ -1,19 +1,22 @@
+let cardData
+
 if (localStorage.getItem('sch')) {
   document.getElementById('count').innerText = localStorage.getItem('sch')
 } else {
   localStorage.setItem('sch', '1000')
   document.getElementById('count').innerText = localStorage.getItem('sch')
 }
-let cardData
+
 const getCards = async () => {
   url = `https://rickandmortyapi.com/api/character/[1,2,3,4,5]`
   const res = await fetch(url)
   const data = await res.json()
   console.log(data)
   cardData = data
-  createGameCards(data)
+  try {
+    createGameCards(data)
+  } catch (err) {}
 }
-getCards()
 
 function createGameCards(data) {
   data.forEach(el => {
@@ -36,7 +39,6 @@ function createGameCards(data) {
     select.setAttribute('class', 'select-button')
     select.innerText = 'PLAY ME'
     image.setAttribute('src', el.image)
-
     back.append(backImage)
     front.append(name, image, select)
     innerCard.append(front, back)
@@ -166,14 +168,15 @@ function createGameCards(data) {
     })
   })
 }
+
 function addPoints(points) {
   const pointSpan = document.getElementById('count')
-  //   pointSpan.innerText = ''
   let pnts = parseInt(localStorage.getItem('sch'))
   pnts += points
   pointSpan.innerText = pnts
   localStorage.setItem('sch', pnts)
 }
+
 function createComputerCard(data) {
   const card = document.createElement('article')
   card.setAttribute('class', 'game-card-pc')
@@ -194,10 +197,11 @@ function createComputerCard(data) {
   select.setAttribute('class', 'select-button')
   select.innerText = 'PLAY ME'
   image.setAttribute('src', data.image)
-
   back.append(backImage)
   front.append(name, image, select)
   innerCard.append(front, back)
   card.append(innerCard)
   document.getElementById('computer-choice').append(card)
 }
+
+getCards()

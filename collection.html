@@ -13,13 +13,12 @@
       <img src="./assets/File-01-01.png" id="icon" />
 
       <p>
-        <img src="./assets/Rick_and_Morty.svg.png" id="title" /><em
-          >A Collectable Card Game</em
-        >
+        <img src="./assets/Rick_and_Morty.svg.png" id="title" />
+        <em>A Collectable Card Game</em>
       </p>
       <nav>
         <a href="./index.html">Home</a>
-        <span id="count"><img src="./assets/Schmeckles.webp" id="sch" /></span>
+        <img src="./assets/Schmeckles.webp" id="sch" /><span id="count"></span>
       </nav>
     </header>
 
@@ -40,30 +39,12 @@
         <hr id="hr-1" />
         <h3>Search By</h3>
         <hr />
-        <p></p>
-        <!-- <input
-          type="radio"
-          id="character"
-          name="type"
-          checked
-          value="character"
-        />
-        <label for="character">Character</label>
-        <br /> -->
-        <!-- <select name="type" id="type">
-          <option>---Please Make a Selection---</option>
-          <option value="character">Character</option>
-          <option value="location">Location</option>
-        </select> -->
-        <br />
-        <!-- <input type="radio" id="location" name="type" value="location" />
-        <label for="location">Location</label> -->
         <br />
         <p id="err" class="none">Searches should not have numbers!</p>
         <label for="query">Name:</label>
         <br />
         <input type="text" id="query" />
-        <input type="button" id="advance" value="Advance Search" />
+        <button type="button" id="advance">Advance Search</button>
         <section id="advance-search" class="none">
           <p>Status:</p>
           <input type="radio" id="alive" name="status" value="alive" />
@@ -88,11 +69,12 @@
         <br />
         <div id="buttons">
           <button id="cancel" class="none" type="button">Cancel</button>
-          <input type="submit" id="submit" value="Search" />
+          <button type="submit" id="submit">Search</button>
         </div>
       </form>
       <div id="grid-right">
         <h2>Card Collection</h2>
+        <p id="error"></p>
         <section id="card-list"></section>
       </div>
     </main>

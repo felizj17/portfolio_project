@@ -242,6 +242,14 @@ aside {
   padding-left: 25px;
   font-weight: 800;
 }
+#error {
+  font-size: xx-large;
+  font-weight: 800;
+  color: red;
+  margin-left: 20%;
+  margin-right: auto;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
 label {
   font-size: medium;
   margin-bottom: 15px;
@@ -464,7 +472,6 @@ label {
   #form {
     display: none;
   }
-  /* form{display: none;} */
   .search-icon {
     display: block;
     width: 40px;
